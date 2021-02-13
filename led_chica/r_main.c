@@ -59,14 +59,12 @@ void main(void)
 {
     R_MAIN_UserInit();
     /* Start user code. Do not edit comment generated here */
-    P1_bit.no7 = 1;
     while (1U)
     {
-	volatile long i;
-	P1_bit.no7 = 0;
-	for (i = 0; i < 100000; i++) ;
-	P1_bit.no7 = 1;
-	for (i = 0; i < 400000; i++) ;
+	if(P7_bit.no5 == 0)
+	    P1_bit.no7 = 0;
+	else
+	    P1_bit.no7 = 1;
     }
     /* End user code. Do not edit comment generated here */
 }
